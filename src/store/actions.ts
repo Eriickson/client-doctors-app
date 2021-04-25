@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import * as counterAction from "./reducers/counter.reducers";
 import * as doctorAction from "./reducers/doctor.reducers";
 
+/* eslint-disable */
 export function useAction() {
   const dispatch = useDispatch();
 

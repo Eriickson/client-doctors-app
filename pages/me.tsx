@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const MePage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const MePage: React.FC = () => {
+  return <div></div>;
+};
 
-export default MePage
+export default MePage;

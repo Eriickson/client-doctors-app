@@ -1,8 +1,9 @@
-import { IconStar } from "@tabler/icons";
 import React from "react";
+
 import { useSelector } from "@/store";
-import Section from "./Section";
+
 import { StarComponents } from "@/components";
+import Section from "./Section";
 
 const MainContent: React.FC = () => {
   const { profileDoctor } = useSelector(store => store.doctor);

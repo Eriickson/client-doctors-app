@@ -1,9 +1,12 @@
-import { IconPhone, IconStar } from "@tabler/icons";
 import React from "react";
-import Section from "./Section";
-import { useSelector } from "@/store";
 import StickyBox from "react-sticky-box";
+
+import { useSelector } from "@/store";
+
+import { IconPhone } from "@tabler/icons";
+
 import { StarComponents } from "@/components";
+import Section from "./Section";
 
 const AsideLeft: React.FC = () => {
   const { profileDoctor } = useSelector(store => store.doctor);

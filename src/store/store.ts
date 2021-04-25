@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore, EnhancedStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
 import { RootStore, rootReducer } from "./reducers/reducers";
 import { useSelector as _useSelector, TypedUseSelectorHook } from "react-redux";
@@ -8,8 +8,7 @@ const customizedMiddleware = getDefaultMiddleware({
 });
 
 const logger = createLogger({
-  predicate: () =>
-    process.env.NODE_ENV === "development" && typeof window !== "undefined",
+  predicate: () => process.env.NODE_ENV === "development" && typeof window !== "undefined",
 });
 
 const store = configureStore({
@@ -18,5 +17,6 @@ const store = configureStore({
   middleware: [...customizedMiddleware, logger] as const,
 });
 
-export const useStore = () => ({ store });
+export const useStore = (): { store: EnhancedStore } => ({ store });
+
 export const useSelector: TypedUseSelectorHook<RootStore> = _useSelector;

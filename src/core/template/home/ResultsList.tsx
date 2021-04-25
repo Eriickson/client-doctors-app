@@ -1,6 +1,6 @@
 import { StarComponents } from "@/components";
 import { IDoctor } from "@/graphql";
-import { IconMapPin, IconStar } from "@tabler/icons";
+import { IconMapPin } from "@tabler/icons";
 import Link from "next/link";
 import React from "react";
 
