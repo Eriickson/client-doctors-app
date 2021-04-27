@@ -47,14 +47,24 @@ export const GET_DOCTOR_APPOINTMENT_Q = gql`
         lastname
         imageNumber
         calendar {
+          id
           date
           schedule {
+            typeAppointment
             time
             patient
             note
           }
         }
       }
+    }
+  }
+`;
+
+export const CANCEL_APPOINTMENT_Q = gql`
+  mutation CancelAppointment($idDoctor: ID!, $idAppointment: ID!) {
+    cancelAppointment(idDoctor: $idDoctor, idAppointment: $idAppointment) {
+      msg
     }
   }
 `;
@@ -89,5 +99,11 @@ export interface IScheduleAppointmentPayload {
 export interface IGetDoctorPayload {
   getDoctor: {
     doctor: IDoctor;
+  };
+}
+
+export interface CancelAppointmentPayload {
+  cancelAppointment: {
+    msg: string;
   };
 }

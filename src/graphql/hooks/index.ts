@@ -17,11 +17,13 @@ export interface IDoctor {
   ubications: string[];
   imageNumber: number;
   calendar: {
+    id: string;
     date: string;
     schedule: {
       time: string;
       patient: string;
       note: string;
+      typeAppointment: string;
     };
   }[];
   scoreAvg: number;

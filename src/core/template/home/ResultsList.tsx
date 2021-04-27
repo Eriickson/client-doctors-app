@@ -32,7 +32,7 @@ const ResultsList: React.FC<ResultsListProps> = ({ results }) => {
                     <div className="flex-1">
                       <div className="flex justify-between">
                         <h4 className="font-semibold">
-                          Dr. {doctor.name} {doctor.lastname}
+                          {doctor.name} {doctor.lastname}
                         </h4>
                         <span className="flex text-sm font-semibold text-gray-400">
                           {doctor.province}

@@ -18,9 +18,13 @@ const doctorSlice = createSlice({
     setAppointment(state, { payload }: PayloadAction<IDoctor>) {
       state.appointment = payload;
     },
+    cancelAppointment(state, { payload }: PayloadAction<{ id: string }>) {
+      if (state.appointment)
+        state.appointment.calendar = state.appointment.calendar.filter(item => item.id !== payload.id);
+    },
   },
 });
 
-export const { setProfileDoctor, setAppointment } = doctorSlice.actions;
+export const { setProfileDoctor, setAppointment, cancelAppointment } = doctorSlice.actions;
 
 export default doctorSlice.reducer;
