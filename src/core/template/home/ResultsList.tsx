@@ -2,19 +2,25 @@ import { StarComponents } from "@/components";
 import { IDoctor } from "@/graphql";
 import { IconMapPin } from "@tabler/icons";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface ResultsListProps {
   results: IDoctor[];
 }
 
 const ResultsList: React.FC<ResultsListProps> = ({ results }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    results.length ? setIsOpen(true) : setIsOpen(false);
+  }, [results]);
+
   return (
     <div className="relative">
-      <div className="absolute left-0 right-0 px-1 pt-2 bg-white border border-t-0 top-1">
-        <ul className="pb-2 overflow-auto divide-y divide-cyan-600 divide-opacity-25" style={{ maxHeight: 400 }}>
-          {results.length ? (
-            results.map(doctor => (
+      {isOpen && (
+        <div className="absolute left-0 right-0 px-1 pt-2 bg-white border border-t-0 top-1">
+          <ul className="pb-2 overflow-auto divide-y divide-cyan-600 divide-opacity-25" style={{ maxHeight: 400 }}>
+            {results.map(doctor => (
               <li key={doctor.id}>
                 <Link href={`/dr/${doctor.id}`}>
                   <a className="flex px-3 py-2 duration-150 cursor-pointer hover:bg-cyan-100">
@@ -50,14 +56,10 @@ const ResultsList: React.FC<ResultsListProps> = ({ results }) => {
                   </a>
                 </Link>
               </li>
-            ))
-          ) : (
-            <li>
-              <p className="font-semibold text-center text-gray-400">No se han encontrado resultados</p>
-            </li>
-          )}
-        </ul>
-      </div>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

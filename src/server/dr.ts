@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+
 import { client, GET_DOCTOR_Q, IDoctor, IGetDoctorPayload } from "@/graphql";
 
 export interface DoctorPageProps {
@@ -12,7 +13,5 @@ export const drSsr: GetServerSideProps = async ctx => {
     doctor: data.getDoctor.doctor,
   };
 
-  return {
-    props,
-  };
+  return { props };
 };

@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface DoctorState {
   profileDoctor?: IDoctor;
+  appointment?: IDoctor;
 }
 
 const initialState: DoctorState = {};
@@ -14,9 +15,12 @@ const doctorSlice = createSlice({
     setProfileDoctor(state, { payload }: PayloadAction<IDoctor>) {
       state.profileDoctor = payload;
     },
+    setAppointment(state, { payload }: PayloadAction<IDoctor>) {
+      state.appointment = payload;
+    },
   },
 });
 
-export const { setProfileDoctor } = doctorSlice.actions;
+export const { setProfileDoctor, setAppointment } = doctorSlice.actions;
 
 export default doctorSlice.reducer;

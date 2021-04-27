@@ -21,15 +21,16 @@ export interface IDoctor {
     schedule: {
       time: string;
       patient: string;
+      note: string;
     };
-  };
-  scoreAvg: number
+  }[];
+  scoreAvg: number;
 }
 
 export interface IFindDoctor {
-  fullname?: string;
-  specialty?: string;
-  province?: string;
+  fullname?: string | null;
+  specialty?: string | null;
+  province?: string | null;
 }
 
 interface UseFindDoctorsReturn {
@@ -44,6 +45,7 @@ export const useFindDoctors = (): UseFindDoctorsReturn => {
     const { data } = await client.query<FindDoctorsPayload, { findDoctorsFilter: IFindDoctor }>({
       query: FIND_DOCTORS_Q,
       variables: { findDoctorsFilter },
+      fetchPolicy: "no-cache",
     });
 
     setDoctors(data.findDoctors.doctors);

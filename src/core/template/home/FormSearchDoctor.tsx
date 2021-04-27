@@ -17,38 +17,40 @@ const FormSearchDoctor: React.FC<FormSearchDoctorProps> = ({ onChange }) => {
   const [fullname, setFullname] = useState("");
   const [specialty, setSpecialty] = useState("");
   const [province, setProvince] = useState("");
-  const [specialties] = useState(arraySort([
-    "Alergología",
-    "Anestesiología",
-    "Angiología",
-    "Cardiología",
-    "Endocrinología",
-    "Estomatología",
-    "Gastroenterología",
-    "Geriatría",
-    "Hematología",
-    "Hepatología",
-    "Infectología",
-    "Nefrología",
-    "Neumología",
-    "Neurología",
-    "Nutriología",
-    "Pediatría",
-    "Psiquiatría",
-    "Reumatología",
-    "Toxicología",
-    "Oncología médica",
-    "Oncología radioterápica",
-    "Medicina aeroespacial",
-    "Medicina del deporte",
-    "Medicina familiar y comunitaria",
-    "Medicina física y rehabilitación",
-    "Medicina forense",
-    "Medicina intensiva",
-    "Medicina interna",
-    "Medicina preventiva y salud pública",
-    "Medicina del trabajo",
-  ]));
+  const [specialties] = useState(
+    arraySort([
+      "Alergología",
+      "Anestesiología",
+      "Angiología",
+      "Cardiología",
+      "Endocrinología",
+      "Estomatología",
+      "Gastroenterología",
+      "Geriatría",
+      "Hematología",
+      "Hepatología",
+      "Infectología",
+      "Nefrología",
+      "Neumología",
+      "Neurología",
+      "Nutriología",
+      "Pediatría",
+      "Psiquiatría",
+      "Reumatología",
+      "Toxicología",
+      "Oncología médica",
+      "Oncología radioterápica",
+      "Medicina aeroespacial",
+      "Medicina del deporte",
+      "Medicina familiar y comunitaria",
+      "Medicina física y rehabilitación",
+      "Medicina forense",
+      "Medicina intensiva",
+      "Medicina interna",
+      "Medicina preventiva y salud pública",
+      "Medicina del trabajo",
+    ]),
+  );
 
   const [provinces] = useState(
     arraySort([
@@ -87,14 +89,18 @@ const FormSearchDoctor: React.FC<FormSearchDoctorProps> = ({ onChange }) => {
   );
 
   useEffect(() => {
-    onChange({ fullname, specialty, province });
+    if (fullname || specialty || province) {
+      onChange({ fullname, specialty, province });
+    } else {
+      onChange({ fullname: "xxx", specialty: "xxx", province: "xxx" });
+    }
   }, [fullname, specialty, province]);
 
   return (
     <form className="flex items-center p-3 space-x-3 border shadow-sm">
       <div className="flex-1">
         <DebounceInput
-          className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150"
+          className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150 no-close-results"
           minLength={3}
           debounceTimeout={500}
           placeholder="Nombre"
@@ -104,7 +110,7 @@ const FormSearchDoctor: React.FC<FormSearchDoctorProps> = ({ onChange }) => {
       <div className="flex-1">
         <select
           id=""
-          className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150"
+          className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150 no-close-results"
           name="speciality"
           onChange={e => setSpecialty(e.target.value)}
         >
@@ -121,7 +127,7 @@ const FormSearchDoctor: React.FC<FormSearchDoctorProps> = ({ onChange }) => {
       <div className="flex-1">
         <select
           id=""
-          className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150"
+          className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150 no-close-results"
           name="province"
           onChange={e => setProvince(e.target.value)}
         >

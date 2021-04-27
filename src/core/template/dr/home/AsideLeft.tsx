@@ -7,6 +7,7 @@ import { IconPhone } from "@tabler/icons";
 
 import { StarComponents } from "@/components";
 import Section from "./Section";
+import Link from "next/link";
 
 const AsideLeft: React.FC = () => {
   const { profileDoctor } = useSelector(store => store.doctor);
@@ -58,9 +59,11 @@ const AsideLeft: React.FC = () => {
             <p className="font-medium">{profileDoctor?.ubications?.join(", ")}</p>
           </Section>
         </div>
-        <button className="w-full py-3 font-medium text-center text-white duration-150 bg-cyan-500 hover:bg-cyan-400">
-          Agendar Cita
-        </button>
+        <Link href={`/dr/${profileDoctor?.id}/appointment`}>
+          <a className="block w-full py-3 font-medium text-center text-white duration-150 bg-cyan-500 hover:bg-cyan-400">
+            Ver Citas
+          </a>
+        </Link>
       </div>
     </StickyBox>
   );

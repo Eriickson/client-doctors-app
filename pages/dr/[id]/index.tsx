@@ -1,11 +1,16 @@
 import React from "react";
+
+// NextJS
 import { NextPage } from "next";
 
+// Redux
+import { useAction } from "@/store";
+
+// Elements
 import { DoctorPageProps } from "@/server";
 export { drSsr as getServerSideProps } from "@/server";
 
-import { useAction } from "@/store";
-
+// Components
 import { DrTemplate } from "@/templates";
 import { SEO } from "@/components";
 
