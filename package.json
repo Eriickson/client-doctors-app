@@ -26,6 +26,7 @@
     "array-sort": "^1.0.0",
     "babel-plugin-emotion": "^11.0.0",
     "format": "^0.2.2",
+    "framer-motion": "^4.1.11",
     "graphql": "^15.5.0",
     "isomorphic-unfetch": "^3.1.0",
     "moment": "^2.29.1",

@@ -5,7 +5,7 @@ declare global {
       NODE_ENV: "development" | "production";
       PORT?: string;
       PWD: string;
-      GRAPHQL_SERVER: string;
+      NEXT_PUBLIC_URI_SERVER: string;
       WS_GRAPHQL_SERVER: string;
     }
   }

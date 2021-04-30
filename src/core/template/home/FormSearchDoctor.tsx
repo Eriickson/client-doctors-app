@@ -97,7 +97,7 @@ const FormSearchDoctor: React.FC<FormSearchDoctorProps> = ({ onChange }) => {
   }, [fullname, specialty, province]);
 
   return (
-    <form className="flex items-center p-3 space-x-3 border shadow-sm">
+    <form className="flex flex-col p-3 space-y-3 border shadow-sm md:space-x-3 md:space-y-0 md:items-center md:flex-row">
       <div className="flex-1">
         <DebounceInput
           className="border focus:text-cyan-600 px-4 py-3.5 w-full focus:bg-cyan-100 focus:border-cyan-500 duration-150 no-close-results"

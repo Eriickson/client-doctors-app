@@ -2,11 +2,11 @@ import { IDoctor } from "@/graphql";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface DoctorState {
-  profileDoctor?: IDoctor;
-  appointment?: IDoctor;
+  profileDoctor: IDoctor;
+  appointment: IDoctor;
 }
 
-const initialState: DoctorState = {};
+const initialState = {} as DoctorState;
 
 const doctorSlice = createSlice({
   name: "doctor",

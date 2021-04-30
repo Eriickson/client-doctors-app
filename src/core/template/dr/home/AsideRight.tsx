@@ -111,6 +111,7 @@ const AsideRight: React.FC = () => {
             id=""
             cols={30}
             rows={10}
+            placeholder="Agrega una nota..."
             {...register("note", { required: true })}
           ></textarea>
           <button className="w-full py-3 font-medium text-center text-white duration-150 bg-cyan-500 hover:bg-cyan-400">
