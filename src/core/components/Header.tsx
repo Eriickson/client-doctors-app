@@ -6,7 +6,7 @@ export const Header: React.FC = () => {
   return (
     <header className="py-5 bg-cyan-500">
       <div className="container">
-        <div className="flex justify-between text-white">
+        <div className="flex justify-between px-3 text-white md:px-0">
           <Link href="/">
             <a>
               <h1 className="text-2xl font-semibold leading-6 ">
