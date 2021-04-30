@@ -53,6 +53,7 @@
     "ws": "^7.4.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.0",
     "@types/apollo-upload-client": "^14.1.0",
     "@types/array-sort": "^1.0.0",
     "@types/redux-logger": "^3.0.8",
